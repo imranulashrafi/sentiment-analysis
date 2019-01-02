@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        a{
+            color: white;
+        }
+        body {
+            text-align : center;
+            color: white;
+            background-color : #0288DD;
+            vertical-align: middle;
+            font-family: Ubuntu;
+            font-variant: small-caps;
+            font-size: 1.5em;
+        }
+        .topright{
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            font-size: 18px;
+        }
+        .topright2{
+            position: absolute;
+            top: 8px;
+            right: 100px;
+            font-size: 18px;
+            color: #ffffff
+        }
+       textarea {
+            position:relatve;
+            width: 50%;
+            height: 100px;
+            padding: 5px 5px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 18px;
+            -webkit-transition: 0.2s
+            transition: 0.5s;
+            resize: none;
+        }
+        textarea:focus {
+        border: 3px solid #555;
+        }
+    </style>
+    <title>Sentiment Analysis</title>
+
+</head>
+<body>
+    <div>
+    <h1 class="head">What's on your mind?</h1>
+    {% from "_formhelpers.html" import render_field %}
+    <h3>Enter text to predict it's sentiment</h3>
+    <form method=post action="/results">
+		<dl>
+			{{ render_field(form.commentreview) }}
+		</dl>
+        <div>
+		    <input type=submit value='Predict'>
+        </div>
+        <div class="topright">
+             <a href="{{ url_for('about') }}">About</a>
+        </div>
+        </div>
+	</form>
+    </div>
+</body>
+</html>

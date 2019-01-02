@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+		.left{
+            position: absolute;
+            top: 180px;
+            left: 100px;
+            right:  600px;
+            bottom: 0;
+
+            font-size: 1em;
+            font-color: #ffffff
+        }
+        .left2{
+            position: absolute;
+            top: 180px;
+            left: 500px;
+            right: 0px;
+            bottom: 0;
+            font-color: #ffffff
+            font-size: 1em;
+        }
+		 body {
+		 	text-align : center;
+            color: white;
+            background-color : #0288DD;
+            position: relative;
+            font-family: Ubuntu;
+            font-variant: small-caps;
+            font-size: 1.5em;
+        }
+	</style>
+	<title>Classification</title>
+
+</head>
+
+<body>
+	<h1>Your review:</h1>
+	<div>"{{content}}"</div>
+	<div class="left">
+		<h3>Predicted Types:</h3>
+		<div>INVITE : <strong>{{pred1}}</strong></div>
+		<div>LIKE : <strong>{{pred2}}</strong></div>
+		<div>COMPLAIN : <strong>{{pred3}}</strong></div>
+		<div>QUERY : <strong>{{pred4}}</strong></div>
+
+	</div>
+	<div class="left2">
+		<h3>Correct the prediction:</h3>
+			<form action="/thanks" method="post">
+				<input type="checkbox" name="invite" value="yes">INVITE<br>
+  				<input type="checkbox" name="like" value="yes">LIKE<br>
+  				<input type="checkbox" name="complain" value="yes">COMPLAIN<br>
+				<input type="checkbox" name="query" value="yes">QUERY<br><br>
+  				<input type=hidden value='{{ pred1 }}' name='pred1'>
+				<input type=hidden value='{{ pred2 }}' name='pred2'>
+				<input type=hidden value='{{ pred3 }}' name='pred3'>
+				<input type=hidden value='{{ pred4 }}' name='pred4'>
+				<input type=hidden value='{{ content }}' name='review'>
+				<input style="submit" type="submit" value="Submit">
+			</form>
+
+	</div>
+	</div>
+</body>
+</html>
