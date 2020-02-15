@@ -1,3 +1,2 @@
 # sentiment-analysis
-
-![alt text](https://raw.githubusercontent.com/imranulashrafi/sentiment-analysis/master/images/img1.png)
+<img src="img1.png" width="850px" height="370px"/>
