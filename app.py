@@ -159,7 +159,7 @@ def results():
 	return render_template('reviewform.html', form=form)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/feedback', methods=['POST'])
 def feedback():
 # 	review = request.form['review']
 # 	pred1 = request.form['pred1']
