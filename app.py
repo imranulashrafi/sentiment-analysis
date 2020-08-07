@@ -159,37 +159,39 @@ def results():
 	return render_template('reviewform.html', form=form)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/feedback', methods=['POST'])
 def feedback():
-	review = request.form['review']
-	pred1 = request.form['pred1']
-	pred2 = request.form['pred2']
-	pred3 = request.form['pred3']
-	pred4 = request.form['pred4']
-	label = {'False': 0, 'True': 1}
-	p1 = label[pred1]
-	p2 = label[pred2]
-	p3 = label[pred3]
-	p4 = label[pred4]
-	if request.form.get("invite") == "yes":
-		p1 = 1
-	else:
-		p1 = 0
-	if request.form.get("like") == "yes":
-		p2 = 1
-	else:
-		p2 = 0
-	if request.form.get("complain") == "yes":
-		p3 = 1
-	else:
-		p3 = 0
-	if request.form.get("query") == "yes":
-		p4 = 1
-	else:
-		p4 = 0
+# 	review = request.form['review']
+# 	pred1 = request.form['pred1']
+# 	pred2 = request.form['pred2']
+# 	pred3 = request.form['pred3']
+# 	pred4 = request.form['pred4']
+# 	label = {'False': 0, 'True': 1}
+# 	p1 = label[pred1]
+# 	p2 = label[pred2]
+# 	p3 = label[pred3]
+# 	p4 = label[pred4]
+# 	if request.form.get("invite") == "yes":
+# 		p1 = 1
+# 	else:
+# 		p1 = 0
+# 	if request.form.get("like") == "yes":
+# 		p2 = 1
+# 	else:
+# 		p2 = 0
+# 	if request.form.get("complain") == "yes":
+# 		p3 = 1
+# 	else:
+# 		p3 = 0
+# 	if request.form.get("query") == "yes":
+# 		p4 = 1
+# 	else:
+# 		p4 = 0
 	#train(review, p1, p2, p3, p4)
 # 	save_to_db(db, review, p1, p2, p3, p4)
-	return render_template('reviewform.html')
+	form = ReviewForm(request.form)
+	return render_template('reviewform.html', form=form)
+# 	return render_template('reviewform.html')
 
 
 @app.route('/about', methods=['GET', 'POST'])
