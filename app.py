@@ -188,8 +188,8 @@ def feedback():
 	else:
 		p4 = 0
 	#train(review, p1, p2, p3, p4)
-	save_to_db(db, review, p1, p2, p3, p4)
-	return render_template('thanks.html')
+# 	save_to_db(db, review, p1, p2, p3, p4)
+	return render_template('reviewform.html')
 
 
 @app.route('/about', methods=['GET', 'POST'])
